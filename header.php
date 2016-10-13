@@ -22,12 +22,12 @@
                             <div class='divider'></div>
                             <a href='cadastro_termo.php' class='item'>Cadastrar novos termos</a>
                         ");
-                        /*if($_SESSION['tipo_usuario']==2){
+                        if($_SESSION['tipo_usuario']==2){
                             echo("
                                 <a href='editar_termo.php' class='item'>Editar termos cadastrados</a>
-                                <a href='aceitar_termo.php' class='item'>Aceitar novos termos</a>
+                                <a href='ocultar_termo.php' class='item'>Ocultar/Mostrar termos cadastrados</a>
                             ");
-                        }*/
+                        }
                     }
                 ?>
                 

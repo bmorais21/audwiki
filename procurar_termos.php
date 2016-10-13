@@ -29,12 +29,17 @@
                         if(isset($_POST['termo'])){
                             $termo = $_POST['termo'];
                             $termo = '%'.$termo.'%';
-                            $resultado = mysqli_query($conexao, "SELECT * FROM post WHERE titulo LIKE '$termo'");
-                            while($termo = mysqli_fetch_array($resultado)){
-                            echo("<h3>".$termo['titulo'].": ".$termo['descricao'].".</h3>");
+                            $resultado = mysqli_query($conexao, "SELECT * FROM post WHERE titulo LIKE '$termo' AND oculto=1");
+                            $quantidadelinhas = mysqli_num_rows($resultado);
+                            if($quantidadelinhas == 1){
+                                while($termo = mysqli_fetch_array($resultado)){
+                                echo("<h3>".$termo['titulo'].": ".$termo['descricao'].".</h3>");
+                                }
+                            }else{
+                                echo("<h3>Nenhum termo foi encontrado :(</h3>");
                             }
                         }else{
-                            $resultado = mysqli_query($conexao, "SELECT * FROM post");
+                            $resultado = mysqli_query($conexao, "SELECT * FROM post WHERE oculto=1");
                             while($termo = mysqli_fetch_array($resultado)){
                             echo("<h3>".$termo['titulo'].": ".$termo['descricao'].".</h3>");
                             } 
